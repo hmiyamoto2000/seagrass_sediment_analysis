@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+
 #Raw data https://www.data.jma.go.jp/kaiyou/data/db/kaikyo/series/engan/eg_areano.html
 #使用データ　area306/319/508/509/518/602
 #python3.10 txtデータから時系列グラフ.py *.csv
@@ -40,7 +39,7 @@ def detect_date_column(df):
     elif "date" in df.columns:
         df["date"] = pd.to_datetime(df["date"].astype(str).str.strip(), errors="coerce")
         return df
-    print("❌ 日付列なし")
+    print("日付列なし")
     sys.exit(1)
 
 def save_both_formats(fig, filepath_base):
