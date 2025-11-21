@@ -1,6 +1,6 @@
-#完全コード
-
-#このコードを例として shap_compare.py などに保存すれば、コマンドラインで python3.10 shap_compare.py と実行するだけで、Random Forest、XGBoost、LightGBM の SHAP を一つのグラフで比較できます。
+#shap_compare.py 
+#python3.10 shap_compare.py 
+#Random Forest、XGBoost、LightGBM の SHAP を一つのグラフで比較
 
 #target,feature1,feature2,feature3
 #0,10.5,3.2,1
