@@ -30,13 +30,13 @@ def clr_transform(df, pseudocount=1e-6):
 # === コマンドライン引数処理 ===
 
 if len(sys.argv) != 2:
-    print("❌ 使用方法: python3.10 clr_transform.py input_file.csv")
+    print("使用方法: python3.10 clr_transform.py input_file.csv")
     sys.exit(1)
 
 input_file = sys.argv[1]
 
 if not os.path.isfile(input_file):
-    print(f"❌ エラー: ファイル '{input_file}' が見つかりません。")
+    print(f"エラー: ファイル '{input_file}' が見つかりません。")
     sys.exit(1)
 
 # 出力ファイル名の作成
@@ -48,12 +48,12 @@ output_file = f"{base}_clr.csv"
 try:
     df_raw = pd.read_csv(input_file)
 except Exception as e:
-    print(f"❌ CSV読み込み中にエラー: {e}")
+    print(f"CSV読み込み中にエラー: {e}")
     sys.exit(1)
 
 # 最初の列はサンプル名として使う
 if 'sample' not in df_raw.columns[0].lower():
-    print("❌ エラー: 最初の列にサンプル名（例: sample）が含まれている必要があります。")
+    print("エラー: 最初の列にサンプル名（例: sample）が含まれている必要あり")
     sys.exit(1)
 
 df_raw = df_raw.set_index(df_raw.columns[0])
@@ -62,7 +62,7 @@ df_raw = df_raw.set_index(df_raw.columns[0])
 try:
     df_numeric = df_raw.astype(float)
 except:
-    print("❌ エラー: 数値以外のデータが含まれています。全ての機能値は数値である必要があります。")
+    print("エラー: 数値以外のデータが含まれています。全ての機能値は数値である必要あり")
     sys.exit(1)
 
 # === CLR変換 ===
@@ -72,4 +72,4 @@ clr_df = clr_transform(df_numeric)
 clr_df.insert(0, 'sample', clr_df.index)
 clr_df.to_csv(output_file, index=False)
 
-print(f"✅ CLR変換完了: 出力ファイル → {output_file}")
+print(f"CLR変換完了: 出力ファイル → {output_file}")
