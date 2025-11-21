@@ -1,5 +1,5 @@
 # ============================================================
-# 🧩 Bacteria–Eukaryota SEM対応: 階層的媒介解析 + Chain mediation + 可視化
+# Bacteria–Eukaryota SEM対応: 階層的媒介解析 + Chain mediation + 可視化
 # ============================================================
 
 # 必要ライブラリ
@@ -120,8 +120,8 @@ cat("Path:", paste(path, collapse = " → "), "\n\n")
 cat("Bootstrap estimate:", boot_chain, "\n")
 cat("Quasi-Bayesian estimate:", bayes_chain, "\n\n")
 cat("Interpretation:\n")
-cat("この値は B_Hyphomonadaceae → E_Corallinophycidae → B_Desulfobulbaceae → Seagrass の間接効果です。\n")
-cat("正なら促進的媒介、負なら抑制的媒介を意味します。\n")
+cat("この値は B_Hyphomonadaceae → E_Corallinophycidae → B_Desulfobulbaceae → Seagrass の間接効果\n")
+cat("正なら促進的媒介、負なら抑制的媒介を意味する\n")
 sink()
 
 cat("mediation解析・chain mediation\n")
@@ -174,4 +174,4 @@ rsvg_png(charToRaw(svg_code),
          file = "./CMA/SEM_Bacteria_Eukaryota_vertical.png",
          width = 2000, height = 2800)
 
-cat("SEM+CMA統合グラフ（縦長）を ./CMA へ。\n")
+cat("SEM+CMA統合グラフ（縦長）を ./CMA へ\n")
