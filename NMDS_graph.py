@@ -34,7 +34,7 @@ nmds_scores = pd.read_csv(input_csv)
 # 列名チェックと修正（必要に応じて）
 expected_columns = {"name", "NMDS1", "NMDS2", "cnd", "env"}
 if not expected_columns.issubset(set(nmds_scores.columns)):
-    print(f"❌ Error: CSV must contain the columns: {expected_columns}")
+    print(f"Error: CSV must contain the columns: {expected_columns}")
     sys.exit(1)
 
 # `group` 列として env を使う（既存コードの流用のため）
@@ -112,7 +112,7 @@ plt.close()
 plt.figure(figsize=(8, 6))
 plt.rcParams["font.family"] = "Helvetica"
 
-# 🔽 envをアルファベット順にソート
+# envをアルファベット順にソート
 unique_env = sorted(nmds_scores['group'].dropna().unique())
 palette_env = sns.color_palette("Set2", len(unique_env))
 color_dict_env = dict(zip(unique_env, palette_env))
@@ -171,4 +171,4 @@ plt.savefig(os.path.join(output_dir, "NMDS_plot_env_cnd.pdf"), dpi=300)
 plt.savefig(os.path.join(output_dir, "NMDS_plot_env_cnd.png"), dpi=300)
 plt.close()
 
-print("✅ グラフ出力完了: NMDS_output フォルダを確認してください。")
+print("グラフ出力: NMDS_output ")
