@@ -1,5 +1,5 @@
 # ============================================================
-# 🧩 階層的媒介解析 + Chain mediation + SEM統合可視化（p値付き）
+# 階層的媒介解析 + Chain mediation + SEM統合可視化（p値付き）
 # ============================================================
 
 # 必要パッケージ
@@ -52,7 +52,7 @@ for (path in mediation_paths) {
   if (!is.null(med_bayes)) {
     cat("\n--- Quasi-Bayesian Mediation Analysis ---\n")
     print(summary(med_bayes))
-  } else cat("⚠️ Quasi-Bayes mediation failed\n")
+  } else cat("Quasi-Bayes mediation failed\n")
   
   med_boot <- tryCatch(
     mediate(fit_m, fit_y, treat = path$treat, mediator = path$mediator, boot = TRUE, sims = 1000),
@@ -61,7 +61,7 @@ for (path in mediation_paths) {
   if (!is.null(med_boot)) {
     cat("\n--- Bootstrap Mediation Analysis ---\n")
     print(summary(med_boot))
-  } else cat("⚠️ Bootstrap mediation failed\n")
+  } else cat("Bootstrap mediation failed\n")
   
   df <- data.frame(
     Treat = path$treat,
@@ -124,7 +124,7 @@ cat("この値は Seagrass → PWY_2941 → PWY_4722 の間接効果を表しま
 cat("正なら正の媒介効果、負なら負の媒介効果を示します。\n")
 sink()
 
-cat("✅ Mediation 解析完了\n")
+cat("Mediation 解析完了\n")
 
 # ============================================================
 # グラフ出力 (縦長・p値に応じたアスタリスク)
@@ -176,4 +176,4 @@ rsvg_png(charToRaw(svg_code),
          file = "./CMA/SEM_CMA_PWY_vertical.png",
          width = 2000, height = 3000)
 
-cat("✅ 縦長SEM+CMAグラフを ./CMA/ に出力しました。\n")
+cat("縦長SEM+CMAグラフ ./CMA/ 出力\n")
