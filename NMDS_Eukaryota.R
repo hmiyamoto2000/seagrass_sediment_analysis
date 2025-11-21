@@ -29,7 +29,7 @@ sink()
 
 library(pairwiseAdonis)
 p0=pairwise.adonis(pc[,2:997],values$env)
-sink('NMDS_pairwiseR_envtxt', append = TRUE)　#Comp ThB別
+sink('NMDS_pairwiseR_envtxt', append = TRUE)　
 print (p0)
 sink()
 
